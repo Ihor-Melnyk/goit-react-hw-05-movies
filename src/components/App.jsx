@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Layout } from './Layout';
+// import { Layout } from './Layout';
 import { MoviesPage } from './pages/Movies';
 import { Reviews } from './pages/Reviews';
 import { MovieDetailsPage } from './pages/MovieDetails';
