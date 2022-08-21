@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchMovie } from 'components/service/movie-service';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { Movie } from 'components/Movie/Movie';
 
 export const MovieDetailsPage = () => {
@@ -9,7 +9,6 @@ export const MovieDetailsPage = () => {
 
   const location = useLocation();
   const goBackLink = location?.state?.from ?? '/';
-  // const noImage = '../../image/noImage.jpg';
 
   useEffect(() => {
     const getMovie = async () => {
@@ -28,25 +27,40 @@ export const MovieDetailsPage = () => {
     poster_path,
     genres,
     overview,
-    original_title,
+    title,
     release_date,
     vote_average,
   } = movie;
-  // console.log(movie);
+
   return (
     <div key={id}>
       <div>
-        <Link to={goBackLink}>back to movies</Link>
+        <Link to={goBackLink}>Go back</Link>
       </div>
       <Movie
         id={id}
         poster_path={poster_path}
         genres={genres}
         overview={overview}
-        original_title={original_title}
+        title={title}
         release_date={release_date}
         vote_average={vote_average}
       />
+      <h2>Additional information</h2>
+      <ul>
+        <li>
+          <Link to={`cast`} state={{ from: goBackLink }}>
+            Cast
+          </Link>
+        </li>
+        <li>
+          <Link to={`reviews`} state={{ from: goBackLink }}>
+            Reviews
+          </Link>
+        </li>
+      </ul>
+
+      <Outlet />
     </div>
   );
 };

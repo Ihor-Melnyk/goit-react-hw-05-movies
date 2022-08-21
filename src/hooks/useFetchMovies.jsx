@@ -3,35 +3,25 @@ import { fetchTrendingToday } from 'components/service/movie-service';
 
 export const useFetchMovies = () => {
   const [movies, setMovies] = useState([]);
-  // const [error, setError] = useState(null);
-  // const [isLoading, setIsLoading] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
 
   useEffect(() => {
-    // setIsLoading(true);
+    setIsLoading(true);
 
-    const data = fetchTrendingToday();
-    data
-      .then(res => setMovies(res.data.results))
-      .catch(error => {
+    const getTrendingToday = async () => {
+      try {
+        const data = await fetchTrendingToday();
+        return setMovies(data);
+      } catch (error) {
+        setError(true);
         console.error(error);
-      });
-
-    // const getTrendingToday = async () => {
-    //   // try {
-    //   //   const data = await fetchTrendingToday();
-    //   //   return setMovies(data);
-    //   // } catch (error) {
-    //   //   setError(true);
-    //   //   console.error(error);
-    //   // } finally {
-    //   //   setIsLoading(false);
-    //   // }
-    // };
-    // getTrendingToday();
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getTrendingToday();
   }, []);
 
-  return {
-    movies,
-    // error, isLoading
-  };
+  return { movies, error, isLoading };
 };
