@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import { Header } from './pages/Header/Header';
+
 export const Layout = () => {
   return (
     <>

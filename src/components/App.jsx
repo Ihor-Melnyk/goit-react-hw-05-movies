@@ -3,15 +3,15 @@ import { Layout } from './Layout';
 import { MoviesPage } from './pages/Movies';
 import { Reviews } from './pages/Reviews';
 import { MovieDetailsPage } from './pages/MovieDetails';
-import { HomePage } from './pages/Home';
+import { Home } from './pages/Home';
 import { Cast } from './pages/Cast';
-import { Header } from './pages/Header/Header';
+import { Header } from './Header/Header';
 
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Header />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<Home />} />
         <Route path="movies" element={<MoviesPage />} />
         <Route path="movies/:movieId" element={<MovieDetailsPage />}>
           <Route path="cats" element={<Cast />} />
