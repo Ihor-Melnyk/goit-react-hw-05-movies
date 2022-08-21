@@ -9,7 +9,7 @@ export const MovieDetailsPage = () => {
 
   const location = useLocation();
   const goBackLink = location?.state?.from ?? '/';
-  const noImage = '../../image/noImage.jpg';
+  // const noImage = '../../image/noImage.jpg';
 
   useEffect(() => {
     const getMovie = async () => {
