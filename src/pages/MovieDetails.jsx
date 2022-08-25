@@ -44,8 +44,8 @@ const MovieDetailsPage = () => {
             Reviews
           </Link>
         </List>
-        <Outlet />
       </Section>
+      <Outlet />
     </>
   );
 };
