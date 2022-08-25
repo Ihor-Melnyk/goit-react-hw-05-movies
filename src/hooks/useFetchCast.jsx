@@ -11,8 +11,12 @@ export const useFetchCast = () => {
       return;
     }
     const getActors = async () => {
-      const data = fetchActorsMovie(movieId);
-      data.then(res => setActors(res.cast));
+      try {
+        const data = fetchActorsMovie(movieId);
+        data.then(res => setActors(res.cast));
+      } catch (error) {
+        console.error(error);
+      }
     };
     getActors();
   }, [movieId]);

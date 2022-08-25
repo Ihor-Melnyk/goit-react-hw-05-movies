@@ -2,7 +2,7 @@ import { MovieList } from 'components/MovieList/MovieList';
 import { SearchMovie } from 'components/SearchMovie/SearchMovie';
 import useSearchMovies from 'hooks/useSearchMovies';
 import { Outlet } from 'react-router-dom';
-import { Section } from './MovieDetails.styled';
+import { Section } from '../MovieDetails/MovieDetails.styled';
 
 const MoviesPage = () => {
   const { movies, handleSubmit } = useSearchMovies();

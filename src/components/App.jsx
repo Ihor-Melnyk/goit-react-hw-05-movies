@@ -4,19 +4,23 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 const Header = lazy(() =>
   import('./Header/Header' /* webpackChunkName: "Header" */)
 );
-const Home = lazy(() => import('../pages/Home' /* webpackChunkName: "Home" */));
+const Home = lazy(() =>
+  import('../pages/Home/Home' /* webpackChunkName: "Home" */)
+);
 
 const MoviesPage = lazy(
-  () => import('../pages/Movies') /* webpackChunkName: "Movies" */
+  () => import('../pages/Movies/Movies') /* webpackChunkName: "Movies" */
 );
 const MovieDetailsPage = lazy(() =>
-  import('../pages/MovieDetails' /* webpackChunkName: "MovieDetailsPage" */)
+  import(
+    '../pages/MovieDetails/MovieDetails' /* webpackChunkName: "MovieDetailsPage" */
+  )
 );
 const Cast = lazy(() =>
-  import('../pages/Cast' /* webpackChunkName: "MovieDetails" */)
+  import('../pages/Cast/Cast' /* webpackChunkName: "MovieDetails" */)
 );
 const Reviews = lazy(() =>
-  import('../pages/Reviews' /* webpackChunkName: "MovieDetails" */)
+  import('../pages/Reviews/Reviews' /* webpackChunkName: "MovieDetails" */)
 );
 
 export const App = () => {

@@ -12,8 +12,12 @@ export const useFetchReviews = () => {
     }
 
     const getReviews = async () => {
-      const data = fetchReviewsMovie(movieId);
-      data.then(res => setReviews(res.results));
+      try {
+        const data = fetchReviewsMovie(movieId);
+        data.then(res => setReviews(res.results));
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     getReviews();

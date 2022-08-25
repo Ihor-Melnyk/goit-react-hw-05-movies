@@ -17,8 +17,12 @@ const useSearchMovies = () => {
     }
 
     const getMovieByName = async () => {
-      const data = fetchSearchMovie(query);
-      data.then(res => setMovies(res.results));
+      try {
+        const data = fetchSearchMovie(query);
+        data.then(res => setMovies(res.results));
+      } catch (error) {
+        console.error(error);
+      }
     };
     getMovieByName();
   }, [query]);

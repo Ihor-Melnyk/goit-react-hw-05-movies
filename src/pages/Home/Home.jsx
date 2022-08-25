@@ -1,7 +1,7 @@
-import { MovieList } from '../components/MovieList/MovieList';
+import { MovieList } from '../../components/MovieList/MovieList';
 import { Loader } from 'components/Loader/Loader';
 import { useFetchTrendingMovies } from 'hooks/useFetchTrendingMovies';
-import { Section } from './MovieDetails.styled';
+import { Section } from '../MovieDetails/MovieDetails.styled';
 
 const Home = () => {
   const { movies, error, isLoading } = useFetchTrendingMovies();
