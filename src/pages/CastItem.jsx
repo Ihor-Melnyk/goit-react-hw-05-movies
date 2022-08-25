@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const CastItem = ({ actor }) => {
   const { name, character, profile_path } = actor;
 
@@ -13,4 +15,10 @@ export const CastItem = ({ actor }) => {
       />
     </>
   );
+};
+
+CastItem.propTypes = {
+  name: PropTypes.string,
+  character: PropTypes.string,
+  profile_path: PropTypes.string,
 };

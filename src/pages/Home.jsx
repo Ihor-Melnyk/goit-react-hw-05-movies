@@ -1,20 +1,17 @@
 import { MovieList } from '../components/MovieList/MovieList';
 import { Loader } from 'components/Loader/Loader';
-import { useFetchMovies } from 'hooks/useFetchMovies';
-// import { Heading } from 'components';
+import { useFetchTrendingMovies } from 'hooks/useFetchTrendingMovies';
 
-export const Home = () => {
-  const { movies, error, isLoading } = useFetchMovies();
+const Home = () => {
+  const { movies, error, isLoading } = useFetchTrendingMovies();
   return (
     <>
-      {
-        error && console.log(error)
-        // < Heading />
-      }
+      {error && console.log(error)}
       {isLoading && <Loader />}
       <h1>Trending today</h1>
-
       <MovieList movies={movies} />
     </>
   );
 };
+
+export default Home;

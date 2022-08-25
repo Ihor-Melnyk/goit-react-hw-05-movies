@@ -1,25 +1,8 @@
-import { fetchReviewsMovie } from 'components/service/movie-service';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useFetchReviews } from 'hooks/useFetchReviews';
 import { ReviewsList } from './ReviewsList';
 
-export const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
-  const { movieId } = useParams();
-
-  useEffect(() => {
-    if (!movieId) {
-      return;
-    }
-
-    const getReviews = async () => {
-      const data = fetchReviewsMovie(movieId);
-      data.then(res => setReviews(res.results));
-    };
-
-    getReviews();
-  }, [movieId]);
-
+const Reviews = () => {
+  const reviews = useFetchReviews();
   return (
     <div>
       {reviews.length ? (
@@ -30,3 +13,4 @@ export const Reviews = () => {
     </div>
   );
 };
+export default Reviews;

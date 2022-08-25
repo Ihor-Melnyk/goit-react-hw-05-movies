@@ -1,7 +1,7 @@
 import { NavBar, NavLinkHeader } from './Header.styled';
 import { Outlet } from 'react-router-dom';
 
-export const Header = () => {
+const Header = () => {
   return (
     <>
       <NavBar>
@@ -14,3 +14,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default Header;

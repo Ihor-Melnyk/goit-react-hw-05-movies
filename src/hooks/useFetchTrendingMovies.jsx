@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
 import { fetchTrendingToday } from 'components/service/movie-service';
+import { useEffect, useState } from 'react';
 
-export const useFetchMovies = () => {
+export const useFetchTrendingMovies = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);

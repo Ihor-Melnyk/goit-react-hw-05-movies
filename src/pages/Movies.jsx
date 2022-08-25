@@ -1,26 +1,19 @@
-export const MoviesPage = () => {
-  const handleNameChange = e => {
-    console.log(e.currentTarget.value);
-  };
-  const handleSubmit = e => {
-    e.preventDefault();
-  };
+import { MovieList } from 'components/MovieList/MovieList';
+import { SearchMovie } from 'components/SearchMovie/SearchMovie';
+import useSearchMovies from 'hooks/useSearchMovies';
+import { Outlet } from 'react-router-dom';
+import { Section } from './MovieDetails.styled';
+
+const MoviesPage = () => {
+  const { movies, handleSubmit } = useSearchMovies();
 
   return (
-    <div>
-      <p>Movies</p>
-      <form action="" onClick={handleSubmit}>
-        <label htmlFor="">
-          <input
-            type="text"
-            name=""
-            id=""
-            placeholder="Search movies"
-            onChange={handleNameChange}
-          />
-          <button type="submit">Search</button>
-        </label>
-      </form>
-    </div>
+    <Section>
+      <SearchMovie onSubmit={handleSubmit} />
+      {movies && <MovieList movies={movies} />}
+      <Outlet />
+    </Section>
   );
 };
+
+export default MoviesPage;
